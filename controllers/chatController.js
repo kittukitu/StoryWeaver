@@ -2,11 +2,11 @@ const fetch = require('node-fetch');
 require('dotenv').config();
 
 const chatController = async (req, res) => {
-    const { degree, interests, learningMode, careerGoal } = req.body;
+    const { genre, setting, protagonist, theme, writingStyle } = req.body;
 
-    if (!degree || !interests || !learningMode || !careerGoal) {
+    if (!genre || !setting || !protagonist || !theme || !writingStyle) {
         return res.render('index', {
-            response: '❌ Please fill in all fields.',
+            response: '❌ Please fill in all fields to create your story.',
         });
     }
 
@@ -18,7 +18,7 @@ const chatController = async (req, res) => {
     }
 
     const url = 'https://chatgpt4-ai-chatbot.p.rapidapi.com/ask';
-    const query = `I have completed my ${degree}. My interests are in ${interests}. I prefer ${learningMode} for learning. My career goal is to become a ${careerGoal}. Provide a structured course roadmap with a detailed schedule.`;
+    const query = `Generate a ${genre} story set in ${setting}. The protagonist is ${protagonist}, and the story revolves around ${theme}. Write it in a ${writingStyle} style.`;
 
     const options = {
         method: 'POST',
@@ -36,16 +36,16 @@ const chatController = async (req, res) => {
         if (!response.ok) {
             console.error(`🚨 API Error: ${response.status} - ${response.statusText}`);
             return res.render('index', {
-                response: '⚠️ Failed to get a response from the AI. Please try again later.',
+                response: '⚠️ Failed to generate the story. Please try again later.',
             });
         }
 
         const result = await response.json();
         console.log("🔹 API Response:", result);
 
-        const roadmap = result.response || result.result || "⚠️ No response from the AI.";
+        const story = result.response || result.result || "⚠️ No response from the AI.";
 
-        res.render('result', { roadmap });
+        res.render('result', { story });
 
     } catch (error) {
         console.error("❌ Fetch Error:", error);
