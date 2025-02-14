@@ -2,19 +2,11 @@ const fetch = require('node-fetch');
 require('dotenv').config();
 
 const chatController = async (req, res) => {
-    const { stressLevel, meditationTime } = req.body;
+    const { degree, interests, learningMode, careerGoal } = req.body;
 
-    if (!stressLevel || !meditationTime) {
+    if (!degree || !interests || !learningMode || !careerGoal) {
         return res.render('index', {
             response: '❌ Please fill in all fields.',
-            user: req.session.user || null,
-        });
-    }
-
-    if (isNaN(stressLevel) || stressLevel < 1 || stressLevel > 10) {
-        return res.render('index', {
-            response: '⚠️ Please enter a valid stress level between 1 and 10.',
-            user: req.session.user || null,
         });
     }
 
@@ -22,12 +14,11 @@ const chatController = async (req, res) => {
     if (!apiKey) {
         return res.render('index', {
             response: '🚨 Server configuration issue. Please try again later.',
-            user: req.session.user || null,
         });
     }
 
     const url = 'https://chatgpt4-ai-chatbot.p.rapidapi.com/ask';
-    const query = `Give me meditation tips for a person feeling ${stressLevel}/10 stressed in the ${meditationTime}, and provide a week-long meditation plan with exactly 7 days.`;
+    const query = `I have completed my ${degree}. My interests are in ${interests}. I prefer ${learningMode} for learning. My career goal is to become a ${careerGoal}. Provide a structured course roadmap with a detailed schedule.`;
 
     const options = {
         method: 'POST',
@@ -46,35 +37,20 @@ const chatController = async (req, res) => {
             console.error(`🚨 API Error: ${response.status} - ${response.statusText}`);
             return res.render('index', {
                 response: '⚠️ Failed to get a response from the AI. Please try again later.',
-                user: req.session.user || null,
             });
         }
 
         const result = await response.json();
         console.log("🔹 API Response:", result);
 
-        let responseMessage = result.response || result.result || "⚠️ No response from the AI.";
+        const roadmap = result.response || result.result || "⚠️ No response from the AI.";
 
-        // Extract meditation plan
-        const planLines = responseMessage.split('\n').filter(line => line.startsWith('Day '));
-
-        // Format into table rows (limit to 7 days)
-        const formattedPlan = planLines.slice(0, 7).map(day => {
-            const parts = day.split(':');
-            return `<tr><td class="font-semibold">${parts[0]}</td><td>${parts.slice(1).join(':')}</td></tr>`;
-        }).join('');
-
-        res.render('result', {
-            stressLevel,
-            meditationTime,
-            meditationPlan: formattedPlan
-        });
+        res.render('result', { roadmap });
 
     } catch (error) {
         console.error("❌ Fetch Error:", error);
         res.render('index', {
             response: '🚨 Error processing your request. Please try again later.',
-            user: req.session.user || null,
         });
     }
 };

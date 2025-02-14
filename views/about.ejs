@@ -3,75 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About BrainSync</title>
+    <title>About CourseCraft</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script> 
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-
+    
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
     <!-- GSAP Animation Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
-<body class="flex flex-col items-center justify-center min-h-screen py-8 font-sans bg-gradient-to-r from-purple-400 via-pink-500 to-red-600">
+<body class="flex flex-col items-center justify-center min-h-screen py-8 font-sans bg-gradient-to-r from-blue-400 via-indigo-500 to-purple-600">
 
     <!-- Navbar -->
     <nav class="fixed top-0 left-0 right-0 z-10 w-full bg-white shadow-md bg-opacity-90">
         <div class="container flex items-center justify-between px-6 py-4 mx-auto">
-            <h1 class="text-2xl font-bold text-teal-600 flex items-center">
-                <i class="fa-solid fa-brain mr-2" style="color: #FF5733;"></i> WanderMind
+            <h1 class="text-2xl font-bold text-indigo-600 flex items-center">
+                <i class="fa-solid fa-book mr-2" style="color: #FF5733;"></i> CourseCraft
             </h1>
             <div class="space-x-4">
-                <a href="/index" class="text-blue-800 hover:text-teal-600 transition duration-300"><i class="fa-solid fa-house mr-1" style="color: #3498db;"></i> Home</a>
-                <a href="/profile" class="text-gray-800 hover:text-teal-600 transition duration-300"><i class="fa-solid fa-user mr-1" style="color: #2ecc71;"></i> Profile</a>
-                <a href="/edit-profile" class="text-gray-800 hover:text-teal-600 transition duration-300"><i class="fa-solid fa-gear mr-1" style="color: #f1c40f;"></i> Settings</a>
-                <a href="/about" class="text-gray-800 hover:text-teal-600 transition duration-300"><i class="fa-solid fa-gear mr-1" style="color: #f1c40f;"></i>About</a>
-                <a href="/login" class="text-gray-800 hover:text-teal-600 transition duration-300"><i class="fa-solid fa-right-from-bracket mr-1" style="color: #e74c3c;"></i> Logout</a>
+                <a href="/index" class="text-blue-800 hover:text-indigo-600 transition duration-300"><i class="fa-solid fa-house mr-1"></i> Home</a>
+                <a href="/profile" class="text-gray-800 hover:text-indigo-600 transition duration-300"><i class="fa-solid fa-user mr-1"></i> Profile</a>
+                <a href="/courses" class="text-gray-800 hover:text-indigo-600 transition duration-300"><i class="fa-solid fa-book-open mr-1"></i> Courses</a>
+                <a href="/about" class="text-gray-800 hover:text-indigo-600 transition duration-300"><i class="fa-solid fa-info-circle mr-1"></i> About</a>
+                <a href="/login" class="text-gray-800 hover:text-indigo-600 transition duration-300"><i class="fa-solid fa-sign-out-alt mr-1"></i> Logout</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="w-full px-8 py-24 mt-16 text-center text-white bg-cover bg-center bg-[url('/images/brain-bg.jpg')]">
-        <h1 class="mb-6 text-5xl font-extrabold">About <span class="text-yellow-300">BrainSync</span></h1>
-        <p class="text-lg max-w-2xl mx-auto">Revolutionizing cognitive enhancement through AI-driven mental fitness and personalized neuro-training.</p>
+    <section class="w-full px-8 py-24 mt-16 text-center text-white bg-cover bg-center bg-[url('/images/coursecraft-bg.jpg')]">
+        <h1 class="mb-6 text-5xl font-extrabold">About <span class="text-yellow-300">CourseCraft</span></h1>
+        <p class="text-lg max-w-2xl mx-auto">Your AI-powered curriculum selector for personalized learning journeys.</p>
     </section>
 
-    <!-- Our Mission -->
+    <!-- Our Vision -->
     <section class="container p-8 mx-auto bg-white rounded-lg shadow-lg mt-8">
-        <h2 class="mb-6 text-3xl font-bold text-purple-600 text-center">Our Mission</h2>
-        <p class="text-gray-600 text-center max-w-3xl mx-auto">BrainSync is committed to enhancing mental well-being and cognitive performance by integrating AI-powered analytics with neuroscience-driven training modules. We empower users to achieve peak mental efficiency through personalized recommendations, brain exercises, and meditation techniques.</p>
+        <h2 class="mb-6 text-3xl font-bold text-indigo-600 text-center">Our Vision</h2>
+        <p class="text-gray-600 text-center max-w-3xl mx-auto">CourseCraft is designed to revolutionize the learning experience by providing AI-driven recommendations, dynamic curriculum paths, and adaptive learning strategies tailored to your unique skills and interests.</p>
     </section>
 
-    <!-- Core Features -->
+    <!-- Key Features -->
     <section class="container p-8 mx-auto bg-white rounded-lg shadow-lg mt-8">
-        <h2 class="mb-6 text-3xl font-bold text-purple-600 text-center">Core Features</h2>
+        <h2 class="mb-6 text-3xl font-bold text-indigo-600 text-center">Key Features</h2>
         <div class="grid gap-6 md:grid-cols-3">
             <div class="p-6 bg-gray-100 rounded-lg shadow-md text-center">
-                <h3 class="text-xl font-semibold">🧠 AI-Powered Cognitive Training</h3>
-                <p class="text-gray-600">Personalized exercises designed to improve memory, focus, and problem-solving skills.</p>
+                <h3 class="text-xl font-semibold">📚 Personalized Course Paths</h3>
+                <p class="text-gray-600">Tailored learning recommendations based on your goals.</p>
             </div>
             <div class="p-6 bg-gray-100 rounded-lg shadow-md text-center">
-                <h3 class="text-xl font-semibold">🌿 Guided Meditation & Mindfulness</h3>
-                <p class="text-gray-600">Reduce stress and anxiety with curated mindfulness practices.</p>
+                <h3 class="text-xl font-semibold">🎯 AI-Powered Skill Assessment</h3>
+                <p class="text-gray-600">Get real-time insights into your progress and strengths.</p>
             </div>
             <div class="p-6 bg-gray-100 rounded-lg shadow-md text-center">
-                <h3 class="text-xl font-semibold">📊 Brain Activity Analytics</h3>
-                <p class="text-gray-600">Track and analyze your cognitive performance over time.</p>
+                <h3 class="text-xl font-semibold">⏳ Adaptive Learning Strategies</h3>
+                <p class="text-gray-600">Modify courses dynamically based on your pace and understanding.</p>
             </div>
         </div>
     </section>
 
-    <!-- Why Choose BrainSync? -->
+    <!-- Why Choose CourseCraft? -->
     <section class="container p-8 mx-auto bg-white rounded-lg shadow-lg mt-8">
-        <h2 class="mb-6 text-3xl font-bold text-purple-600 text-center">Why Choose BrainSync?</h2>
+        <h2 class="mb-6 text-3xl font-bold text-indigo-600 text-center">Why Choose CourseCraft?</h2>
         <ul class="text-gray-600 space-y-2 max-w-2xl mx-auto">
-            <li>✔️ Scientifically validated training methods</li>
-            <li>✔️ AI-driven personalized mental fitness plans</li>
-            <li>✔️ Seamless integration with wearable devices</li>
-            <li>✔️ Progress tracking with real-time feedback</li>
+            <li>✔️ AI-driven course recommendations</li>
+            <li>✔️ Interactive and engaging learning pathways</li>
+            <li>✔️ Seamless progress tracking and feedback</li>
+            <li>✔️ Collaboration with educators and mentors</li>
         </ul>
     </section>
 
